@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+# Configure: tftp-hpa
+if [[ ! -e $EP_RUN ]] ; then
+	log "Configuring $(basename $0) for first run ..."
+
+	# Volume initialization
+	log "Initializing data volume ..."
+	find "${TFTP_DIRECTORY}" \( \! -user "${TFTP_USERNAME}" -o \! -group "${TFTP_GROUP}" \) -exec chown "${TFTP_USERNAME}":"${TFTP_GROUP}" {} \;
+fi
+
