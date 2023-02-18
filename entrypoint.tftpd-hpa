@@ -1,13 +1,13 @@
 #!/bin/bash
 
-set -e
+set -e -o pipefail
 
 # Configure: tftp-hpa
-if [[ ! -e $EP_RUN ]] ; then
-	log "Configuring $(basename $0) for first run ..."
+if [[ ! -e "${EP_RUN}" ]] ; then
+	log "Configuring $(basename "${0}") for first run ..."
 
 	# Volume initialization
 	log "Initializing data volume ..."
-	find "${TFTP_DIRECTORY}" \( \! -user "${TFTP_USERNAME}" -o \! -group "${TFTP_GROUP}" \) -exec chown "${TFTP_USERNAME}":"${TFTP_GROUP}" {} \;
+	find "${TFTP_DIRECTORY}" \( \! -user "${TFTP_UNAME}" -o \! -group "${TFTP_GNAME}" \) -exec chown "${TFTP_UNAME}:${TFTP_GNAME}" {} \;
 fi
 

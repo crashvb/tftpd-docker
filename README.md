@@ -20,8 +20,8 @@ The embedded entrypoint script is located at `/etc/entrypoint.d/tftpd-hpa` and p
  | Variable | Default Value | Description |
  | -------- | ------------- | ----------- |
  | TFTP\_DIRECTORY | /var/lib/tftpboot | tftp-hpa data directory. |
- | TFTP\_GROUP | tftp | Group ID of the tftp-hpa user. |
- | TFTP\_USERNAME | tftp | User ID of the tftp-hpa user. |
+ | TFTP\_GNAME | tftp | Group ID of the tftp-hpa user. |
+ | TFTP\_UNAME | tftp | User ID of the tftp-hpa user. |
 
 ## Healthcheck Scripts
 

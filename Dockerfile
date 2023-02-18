@@ -1,10 +1,10 @@
-FROM crashvb/supervisord:202201080446@sha256:8fe6a411bea68df4b4c6c611db63c22f32c4a455254fa322f381d72340ea7226
+FROM crashvb/supervisord:202302200210@sha256:7ad51ecd78041df68ff7800cbbb6ebd6c0b5644e1c8ff80bd55943710d2dd42d
 ARG org_opencontainers_image_created=undefined
 ARG org_opencontainers_image_revision=undefined
 LABEL \
 	org.opencontainers.image.authors="Richard Davis <crashvb@gmail.com>" \
-	org.opencontainers.image.base.digest="sha256:8fe6a411bea68df4b4c6c611db63c22f32c4a455254fa322f381d72340ea7226" \
-	org.opencontainers.image.base.name="crashvb/supervisord:202201080446" \
+	org.opencontainers.image.base.digest="sha256:7ad51ecd78041df68ff7800cbbb6ebd6c0b5644e1c8ff80bd55943710d2dd42d" \
+	org.opencontainers.image.base.name="crashvb/supervisord:202302200210" \
 	org.opencontainers.image.created="${org_opencontainers_image_created}" \
 	org.opencontainers.image.description="Image containing HPAs TFTP Server." \
 	org.opencontainers.image.licenses="Apache-2.0" \
@@ -17,7 +17,7 @@ LABEL \
 RUN docker-apt tftpd-hpa
 
 # Configure: tftpd-hpa
-ENV TFTP_DIRECTORY=/var/lib/tftpboot TFTP_USERNAME=tftp TFTP_GROUP=tftp
+ENV TFTP_DIRECTORY=/var/lib/tftpboot TFTP_UNAME=tftp TFTP_GNAME=tftp
 
 # Configure: supervisor
 COPY supervisord.tftpd-hpa.conf /etc/supervisor/conf.d/tftpd-hpa.conf
