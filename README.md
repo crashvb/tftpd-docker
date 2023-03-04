@@ -32,8 +32,11 @@ The embedded entrypoint script is located at `/etc/entrypoint.d/tftpd-hpa` and p
 ├─ etc/
 │  ├─ entrypoint.d/
 │  │  └─ tftpd-hpa
-│  └─ healthcheck.d/
-│     └─ tftpd-hpa
+│  ├─ healthcheck.d/
+│  │  └─ tftpd-hpa
+│  └─ supervisor/
+│     └─ config.d/
+│        └─ tftpd-hpa.conf
 └─ var/
    └─ lib/
       └─ tftpboot/
