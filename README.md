@@ -23,14 +23,6 @@ The embedded entrypoint script is located at `/etc/entrypoint.d/tftpd-hpa` and p
  | TFTP\_GNAME | tftp | Group ID of the tftp-hpa user. |
  | TFTP\_UNAME | tftp | User ID of the tftp-hpa user. |
 
-## Healthcheck Scripts
-
-### tftpd-hpa
-
-The embedded healthcheck script is located at `/etc/healthcheck.d/tftpd-hpa` and performs the following actions:
-
-1. Verifies that all tftpd-hpa services are operational.
-
 ## Standard Configuration
 
 ### Container Layout
