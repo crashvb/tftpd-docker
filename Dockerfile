@@ -1,3 +1,10 @@
+FROM crashvb/supervisord:202303031721@sha256:6ff97eeb4fbabda4238c8182076fdbd8302f4df15174216c8f9483f70f163b68 AS builder
+# hadolint ignore=DL3003
+RUN docker-apt build-essential git && \
+	git clone --depth 1 --branch master https://github.com/ossobv/syslog2stdout && \
+	cd syslog2stdout && \
+	make
+
 FROM crashvb/supervisord:202303031721@sha256:6ff97eeb4fbabda4238c8182076fdbd8302f4df15174216c8f9483f70f163b68
 ARG org_opencontainers_image_created=undefined
 ARG org_opencontainers_image_revision=undefined
@@ -15,6 +22,8 @@ LABEL \
 
 # Install packages, download files ...
 RUN docker-apt tftpd-hpa
+
+COPY --from=builder /syslog2stdout/syslog2stdout /usr/local/bin/
 
 # Configure: tftpd-hpa
 ENV TFTP_DIRECTORY=/var/lib/tftpboot TFTP_UNAME=tftp TFTP_GNAME=tftp
